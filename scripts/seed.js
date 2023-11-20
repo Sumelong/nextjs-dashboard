@@ -45,7 +45,6 @@ async function seedUsers(client) {
     throw error;
   }
 }
-
 async function seedInvoices(client) {
   try {
     await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
@@ -84,7 +83,6 @@ async function seedInvoices(client) {
     throw error;
   }
 }
-
 async function seedCustomers(client) {
   try {
     await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
@@ -123,7 +121,6 @@ async function seedCustomers(client) {
     throw error;
   }
 }
-
 async function seedRevenue(client) {
   try {
     // Create the "revenue" table if it doesn't exist
@@ -158,7 +155,6 @@ async function seedRevenue(client) {
     throw error;
   }
 }
-
 async function main() {
   const client = await db.connect();
 
@@ -167,9 +163,7 @@ async function main() {
   await seedInvoices(client);
   await seedRevenue(client);
 
-  client.end = async function () {
 
-  };
   await client.end();
 }
 
